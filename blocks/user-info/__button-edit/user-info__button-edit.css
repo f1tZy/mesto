@@ -1,0 +1,27 @@
+.user-info__button-edit {
+  margin: 24px auto auto 0px;
+  height: 18px;
+  width: 38px;
+  background-color: transparent;
+  border: 1px solid white;
+  color: white;
+  font-size: 30px;
+  display: block;
+  cursor: pointer;
+  font-family: Inter;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 12px;
+  line-height: 15px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  }
+
+@media screen and (max-width: 980px) {
+    .user-info__button-edit {
+      position: static;
+      margin: 20px auto auto;
+    }
+  }
+  

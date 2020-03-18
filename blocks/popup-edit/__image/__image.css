@@ -1,0 +1,7 @@
+.popup__image {
+    display: block;
+    /* background-size: 100%; */
+    width: 800px;
+    height: 533px;
+    object-fit: cover;
+}
