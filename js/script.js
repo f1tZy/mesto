@@ -1,3 +1,5 @@
+import "../pages/index.css";
+
 //создаем переменные
 const placeList = document.querySelector('.places-list');
 const popupEdit = document.querySelector(".popup-edit");
