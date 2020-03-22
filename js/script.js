@@ -39,15 +39,18 @@ openPopupEdit.addEventListener('click', function (event) {
     popupEditOpen.open(event, validButton);//передаем валидатор чтобы при открытии менялось состояние кнопки
 });
 
-
+const inputUserName=userForm.elements.description;
+const inputUserInfo=userForm.elements.info;
+const inputCardName=cardForm.elements.name;
+const inputCardLink=cardForm.elements.link;
 //вызывает обработчика куда вводятся данные для дальнейшей валидации
 function setEventListeners() {
   cardForm.addEventListener('input', function(event){
     const validator=new FormValidator(event.target);
-    validator.setSubmitButtonStateCard()})
+    validator.setSubmitButtonStateCard(inputCardName, inputCardLink, postBtn, words)})
   userForm.addEventListener('input', function(event){
     const validator=new FormValidator(event.target);
-    validator.setSubmitButtonStateUser()});
+    validator.setSubmitButtonStateUser(inputUserName, inputUserInfo, postBtnEdit, words)});
 }
 setEventListeners();
 
@@ -63,7 +66,7 @@ userInfo.addEventListener('click', function (event) {
 popupEdit.addEventListener('click', function (event) {
 if (event.target.matches(".button")) {
     event.preventDefault();
-    api.patchUserInfo(userForm.elements.description.value, userForm.elements.info.value)
+    api.patchUserInfo(inputUserName.value, inputUserInfo.value, popupEdit, api)
       .then(()=>{
     const saveInfo = new UserInfo(userName, userJob);
     saveInfo.updateUserInfo(userForm.elements);

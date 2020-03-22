@@ -41,7 +41,7 @@ class Api {
                 })
         }
 
-    patchUserInfo(nameVal, aboutVal) {
+    patchUserInfo(nameVal, aboutVal, popupEdit, api) {
 
         return fetch(`${this.key.server}/users/me`, {
             method: 'PATCH',
