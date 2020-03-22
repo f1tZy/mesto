@@ -1,6 +1,6 @@
 class CardList {
 
-    constructor(container, cards, cardNew) {
+    constructor(container, cards, cardNew, popup) {
         this.container = container;
         this.cards = cards;
         this.cardNew = cardNew;

@@ -117,7 +117,7 @@ api.getInitialCards()
 
 //создаем cardList
 const cardNew = new Card();
-const newCardList = new CardList(placeList, initialCards, cardNew);
+const newCardList = new CardList(placeList, initialCards, cardNew, popup);
 
 //добавление новой карточки в список
 function addNewCard(event) {
@@ -131,7 +131,7 @@ function addNewCard(event) {
 //вызовы методов лайк, удаление, увеличение картинки
 function clickAction(event) {
 if (event.target.classList.contains('place-card__delete-icon')) {
-    Card.remove(event);
+    Card.remove(event, placeList);
     }
 if (event.target.classList.contains('place-card__like-icon')) {
     Card.like(event);

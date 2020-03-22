@@ -1,8 +1,10 @@
 class FormValidator {
 
-  constructor(){
+  constructor(cardForm, userForm, postBtnEdit, postBtn){
     this.cardForm=cardForm;//передаем формы для проверки валидности
     this.userForm=userForm;
+    this.postBtnEdit=postBtnEdit;
+    this.postBtn=postBtn;
   }
 
   //валидатор

@@ -36,13 +36,9 @@ module: {
         ]
         },
         {
-        test: /\.(eot|svg|ttf|woff|woff2)$/,
+        test: /\.(eot|ttf|woff|woff2)$/,
         loader: 'file-loader?name=./vendor/[name].[ext]'
         },
-        {
-        test: /\.css$/,
-        use:  [MiniCssExtractPlugin.loader, 'css-loader', 'postcss-loader']
-        }
     ]
 },
 

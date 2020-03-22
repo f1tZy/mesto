@@ -1,7 +1,7 @@
 class Card {
 
   //удаление карточки
-  static remove(event) {
+  static remove(event, placeList) {
     placeList.removeChild(event.target.closest('.place-card'));
   }
 
