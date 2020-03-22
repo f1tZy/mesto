@@ -1,4 +1,4 @@
-class Card {
+export class Card {
 
   //удаление карточки
   static remove(event, placeList) {

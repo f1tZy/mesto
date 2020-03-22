@@ -1,4 +1,4 @@
-class FormValidator {
+export class FormValidator {
 
   //валидатор
   checkInputValidity(element, words) {

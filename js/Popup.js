@@ -1,4 +1,4 @@
-class Popup {
+export class Popup {
     constructor(element,postBtn,postBtnEdit) {
         this.element = element;
         this.cardPostBtn=postBtn;//передаем кнопки для изменения состояния

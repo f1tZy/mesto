@@ -1,4 +1,10 @@
 import "../pages/index.css";
+import { Api } from "../js/Api.js";
+import { Card } from "../js/Card.js";
+import { CardList } from "../js/CardList.js";
+import { FormValidator } from "../js/FormValidator.js";
+import { Popup } from "../js/Popup.js";
+import { UserInfo } from "../js/UserInfo.js";
 
 //создаем переменные
 const placeList = document.querySelector('.places-list');
@@ -28,28 +34,25 @@ const inputUserName=userForm.elements.description;//инпуты форм для
 const inputUserInfo=userForm.elements.info;
 const inputCardName=cardForm.elements.name;
 const inputCardLink=cardForm.elements.link;
+const validator=new FormValidator();//вызываем валидатор для передачи в обработчик
 
 //Открытие попапа карточки
 const popupCardOpen = new Popup(popup);
 openAddCardPopup.addEventListener('click', function (event) {
-    const validButton=new FormValidator();//вытаскиваем валидатор
-    popupCardOpen.open(event, validButton);//передаем валидатор чтобы при открытии менялось состояние кнопки
+    popupCardOpen.open(event, validator);//передаем валидатор чтобы при открытии менялось состояние кнопки
 });
 
 //открытие попапа пользователя
 const popupEditOpen = new Popup(popupEdit);
 openPopupEdit.addEventListener('click', function (event) {
-    const validButton=new FormValidator();//вытаскиваем валидатор
-    popupEditOpen.open(event, validButton);//передаем валидатор чтобы при открытии менялось состояние кнопки
+    popupEditOpen.open(event, validator);//передаем валидатор чтобы при открытии менялось состояние кнопки
 });
 
 //вызывает обработчика куда вводятся данные для дальнейшей валидации
 function setEventListeners() {
-  cardForm.addEventListener('input', function(event){
-    const validator=new FormValidator(event.target);
+  cardForm.addEventListener('input', function(){
     validator.setSubmitButtonStateCard(inputCardName, inputCardLink, postBtn, words)})
-  userForm.addEventListener('input', function(event){
-    const validator=new FormValidator(event.target);
+  userForm.addEventListener('input', function(){
     validator.setSubmitButtonStateUser(inputUserName, inputUserInfo, postBtnEdit, words)});
 }
 setEventListeners();
