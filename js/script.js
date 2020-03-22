@@ -24,6 +24,10 @@ const words = {
   link: 'Здесь должна быть ссылка'
   };
 const initialCards = [];//массив для карточек
+const inputUserName=userForm.elements.description;//инпуты форм для валидатора
+const inputUserInfo=userForm.elements.info;
+const inputCardName=cardForm.elements.name;
+const inputCardLink=cardForm.elements.link;
 
 //Открытие попапа карточки
 const popupCardOpen = new Popup(popup);
@@ -39,10 +43,6 @@ openPopupEdit.addEventListener('click', function (event) {
     popupEditOpen.open(event, validButton);//передаем валидатор чтобы при открытии менялось состояние кнопки
 });
 
-const inputUserName=userForm.elements.description;
-const inputUserInfo=userForm.elements.info;
-const inputCardName=cardForm.elements.name;
-const inputCardLink=cardForm.elements.link;
 //вызывает обработчика куда вводятся данные для дальнейшей валидации
 function setEventListeners() {
   cardForm.addEventListener('input', function(event){

@@ -16,7 +16,7 @@ class FormValidator {
     }
   }
 
-  //кнопка попапа пользователя(проверяем проходит ли валидацию и меняем состояние кнопки)
+  //кнопка попапа ПОЛЬЗОВАТЕЛЯ(проверяем проходит ли валидацию и меняем состояние кнопки, передаем инпуты формы, кнопку которая меняет состояние, массив ошибок)
   setSubmitButtonStateUser(inputUserName, inputUserInfo, postBtnEdit, words) {
     const userName = this.checkInputValidity(inputUserName, words);
     const userJob = this.checkInputValidity(inputUserInfo, words);
@@ -24,7 +24,7 @@ class FormValidator {
     else { this.disablePopUpButton(postBtnEdit); }
   }
 
-  //кнопка попапа карточки(проверяем проходит ли валидацию и меняем состояние кнопки)
+  //кнопка попапа КАРТОЧКИ(проверяем проходит ли валидацию и меняем состояние кнопки, передаем инпуты формы, кнопку которая меняет состояние, массив ошибок)
   setSubmitButtonStateCard(inputCardName, inputCardLink, postBtn, words) {
     const nameCard = this.checkInputValidity(inputCardName, words);
     const urlCard = this.checkInputValidity(inputCardLink, words);
