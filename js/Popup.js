@@ -18,13 +18,11 @@ export class Popup {
         }
     }
 
-    open(event, validButton) {
+    open(event) {
         this.element.classList.add('popup_is-opened');
         if (event.target.matches(".user-info__button-edit")) {
-            // validButton.enablePopUpButton(this.userPostBtn)//делаем активную кнопку при открытии попапа редактирования инф-ции
         }
         if (event.target.matches(".user-info__button")) {
-            // validButton.disablePopUpButton(this.cardPostBtn)//делаем не активную кнопку при открытии попапа добавления картинки
         }
     }
 
