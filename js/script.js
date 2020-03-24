@@ -35,6 +35,13 @@ const inputUserInfo=userForm.elements.info;
 const inputCardName=cardForm.elements.name;
 const inputCardLink=cardForm.elements.link;
 const validator=new FormValidator();//вызываем валидатор для передачи в обработчик
+let BASE_URL;//переменная для записи протокола
+
+//функция выбора протокола для сервера
+function chooseBASE_URL(){
+  if(process.env.NODE_ENV === 'production'){BASE_URL = 'https://praktikum.tk/cohort8'}
+  else{BASE_URL = 'http://praktikum.tk/cohort8'}}
+chooseBASE_URL();
 
 //Открытие попапа карточки
 const popupCardOpen = new Popup(popup);
@@ -90,7 +97,7 @@ iconCloseBig.addEventListener('click', closeShowImg);
 
 //создаем Апи
 const api = new Api({
-  server: 'https://praktikum.tk/cohort8',
+  server: BASE_URL,
   headers: {
       authorization: '9c07bd70-82ce-4582-b1b7-e0c8dccb8ffd',
       'Content-Type': 'application/json'
