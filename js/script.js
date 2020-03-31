@@ -138,6 +138,7 @@ function addNewCard(event) {
     const newName = placeName.value;
     const newLink = placeLink.value;
     newCardList.addCard(newName, newLink);
+    api.newCardAdd(newName, newLink);
     popupForm.reset();
   }
 

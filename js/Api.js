@@ -66,5 +66,25 @@ export class Api {
                         popupEdit.classList.remove('popup_is-opened');
                     });
             }
+
+        newCardAdd(cardName, linkCard){
+            return  fetch(`${this.key.server}/cards`, {
+                method: 'POST',
+                headers: this.key.headers,
+                body: JSON.stringify({
+                    name: `${cardName}`,
+                    link: `${linkCard}`
+                }),
+            })
+            .then(res => {
+                if(res.ok){
+                    return res.json();
+                }
+                return Promise.reject(`Ошибка: ${res.status}`);
+            })
+            .catch((err) => {
+                console.log(err)
+            })
+        }
     }
 
