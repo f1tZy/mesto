@@ -1,12 +1,7 @@
-class FormValidator {
-
-  constructor(){
-    this.cardForm=cardForm;//передаем формы для проверки валидности
-    this.userForm=userForm;
-  }
+export class FormValidator {
 
   //валидатор
-  checkInputValidity(element) {
+  checkInputValidity(element, words) {
     this.error = document.querySelector(`.error-${element.name}`);//общяя переменная для ошибки всех инпутов, при введении инф-ы 
     if (!element.validity.valid) {
       if (element.validity.typeMismatch) { this.error.textContent = words.link; }
@@ -21,18 +16,18 @@ class FormValidator {
     }
   }
 
-  //кнопка попапа пользователя(проверяем проходит ли валидацию и меняем состояние кнопки)
-  setSubmitButtonStateUser() {
-    const userName = this.checkInputValidity(this.userForm.elements.description);
-    const userJob = this.checkInputValidity(this.userForm.elements.info);
+  //кнопка попапа ПОЛЬЗОВАТЕЛЯ(проверяем проходит ли валидацию и меняем состояние кнопки, передаем инпуты формы, кнопку которая меняет состояние, массив ошибок)
+  setSubmitButtonStateUser(inputUserName, inputUserInfo, postBtnEdit, words) {
+    const userName = this.checkInputValidity(inputUserName, words);
+    const userJob = this.checkInputValidity(inputUserInfo, words);
     if (userName && userJob) { this.enablePopUpButton(postBtnEdit); }
     else { this.disablePopUpButton(postBtnEdit); }
   }
 
-  //кнопка попапа карточки(проверяем проходит ли валидацию и меняем состояние кнопки)
-  setSubmitButtonStateCard() {
-    const nameCard = this.checkInputValidity(this.cardForm.elements.name);
-    const urlCard = this.checkInputValidity(this.cardForm.elements.link);
+  //кнопка попапа КАРТОЧКИ(проверяем проходит ли валидацию и меняем состояние кнопки, передаем инпуты формы, кнопку которая меняет состояние, массив ошибок)
+  setSubmitButtonStateCard(inputCardName, inputCardLink, postBtn, words) {
+    const nameCard = this.checkInputValidity(inputCardName, words);
+    const urlCard = this.checkInputValidity(inputCardLink, words);
     if (nameCard && urlCard) { this.enablePopUpButton(postBtn); }
     else { this.disablePopUpButton(postBtn); }
   }

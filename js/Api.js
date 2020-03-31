@@ -1,4 +1,4 @@
-class Api {
+export class Api {
     constructor(key){
         this.key=key;
     }
@@ -41,7 +41,7 @@ class Api {
                 })
         }
 
-    patchUserInfo(nameVal, aboutVal) {
+    patchUserInfo(nameVal, aboutVal, popupEdit, api) {
 
         return fetch(`${this.key.server}/users/me`, {
             method: 'PATCH',
@@ -66,5 +66,25 @@ class Api {
                         popupEdit.classList.remove('popup_is-opened');
                     });
             }
+
+        newCardAdd(cardName, linkCard){
+            return  fetch(`${this.key.server}/cards`, {
+                method: 'POST',
+                headers: this.key.headers,
+                body: JSON.stringify({
+                    name: `${cardName}`,
+                    link: `${linkCard}`
+                }),
+            })
+            .then(res => {
+                if(res.ok){
+                    return res.json();
+                }
+                return Promise.reject(`Ошибка: ${res.status}`);
+            })
+            .catch((err) => {
+                console.log(err)
+            })
+        }
     }
 
