@@ -1,13 +1,25 @@
-# https://f1tzy.github.io/mesto/
+# Mesto project
 
-## Mesto project
+* [Ссылка на gh-pages](https://f1tzy.github.io/mesto/)
 
-Версия проекта: v0.0.2
+Версия проекта: v 0.0.2
+
+## Описание:
+Проект в котором сверстан одностроничный сайт с фотокарточками. Настроена сборка webpack. Реализована возможность изменять имя, описание профиля, возможность добавлять свои фото. Также сохранение всего перечисленного на сервере.
+
+## Стек: HTML, CSS, JavaScript, Webpack.
 
 ## Инструкция как развернуть проект:
+Нужно установить [Git](https://git-scm.com/) и [Node.js с NPM](https://nodejs.org/en/)
 
-npm run dev - запускает версию разработки, live сервер.
+```sh
+Команды для терминала:
 
-npm run build - собирает проект webpack.
+git clone https://github.com/f1tZy/mesto.git - клонировать проект на локальный компьютер
 
-npm run deploy - пушит собранный проект в ветку gh-pages на github.
+npm install - установить зависимости.
+
+npm run build - собирает проект в отдельную папку dist.
+
+npm run dev - собирает и открывает проект в отдельной вкладке браузера(live server).
+```
